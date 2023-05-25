@@ -1,47 +1,29 @@
 package orange.java.pl2.adventurecentral.users.models;
 
 import jakarta.persistence.*;
-import orange.java.pl2.adventurecentral.users.RoleName;
+import orange.java.pl2.adventurecentral.users.enums.RoleName;
 
 @Entity
 @Table(name="role")
 public class Role extends BaseModel {
 
     @Enumerated(EnumType.ORDINAL)
-    private RoleName roleName;
+    private Role roleName;
     @Id
     private Long id;
 
-    /**
-     * Instantiates a new Role.
-     */
     public Role() {
     }
 
-    /**
-     * Instantiates a new Role.
-     *
-     * @param roleName the role name
-     */
-    public Role(RoleName roleName) {
+    public RoleName(RoleName roleName) {
         this();
         this.roleName = roleName;
     }
 
-    /**
-     * Gets role name.
-     *
-     * @return the role name
-     */
     public RoleName getRoleName() {
         return roleName;
     }
 
-    /**
-     * Sets role name.
-     *
-     * @param roleName the role name
-     */
     public void setRoleName(RoleName roleName) {
         this.roleName = roleName;
     }

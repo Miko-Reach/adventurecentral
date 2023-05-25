@@ -2,8 +2,8 @@ package orange.java.pl2.adventurecentral.users.models;
 
 import jakarta.persistence.*;
 import jdk.jfr.Event;
-import orange.java.pl2.adventurecentral.tickets.TicketModels;
-import orange.java.pl2.adventurecentral.users.RoleName;
+import orange.java.pl2.adventurecentral.tickets.models.Ticket;
+import orange.java.pl2.adventurecentral.users.enums.RoleName;
 import org.hibernate.annotations.Table;
 
 import java.util.HashSet;
@@ -23,19 +23,16 @@ public class User extends BaseModel {
     private Set<Role> roles;
 
     @OneToMany(mappedBy="createdBy", fetch = FetchType.EAGER)
-    private Set<TicketModels> generatedTicketsModels;
+    private Set<Ticket> generatedTicketsModels;
 
     @OneToMany(mappedBy = "reservedBy", fetch = FetchType.EAGER)
-    private Set<TicketModels> reservedTicketsModels;
+    private Set<Ticket> reservedTicketsModels;
 
     @OneToMany(mappedBy="createdBy", fetch = FetchType.EAGER)
     private Set<Event> generatedEvents;
     @Id
     private Long id;
 
-    /**
-     * Instantiates a new User.
-     */
     public User() {
         this.roles = new HashSet<>();
         this.generatedTicketsModels = new HashSet<>();
@@ -57,65 +54,36 @@ public class User extends BaseModel {
         this.login = login;
     }
 
-    /**
-     * Gets password.
-     *
-     * @return the password
-     */
     public String getPassword() {
         return password;
     }
 
-    /**
-     * Sets password.
-     *
-     * @param password the password
-     */
     public void setPassword(String password) {
         this.password = password;
     }
 
-    /**
-     * Gets roles.
-     *
-     * @return the roles
-     */
+
     public Set<Role> getRoles() {
         return roles;
     }
 
-    /**
-     * Sets roles.
-     *
-     * @param roles the roles
-     */
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
 
-    /**
-     * Gets generated tickets.
-     *
-     * @return the generated tickets
-     */
-    public Set<TicketModels> getGeneratedTicketsModels() {
+    public Set<Ticket> getGeneratedTicketsModels() {
         return generatedTicketsModels;
     }
 
-    public void setGeneratedTickets(Set<TicketModels> generatedTicketsModels) {
+    public void setGeneratedTickets(Set<Ticket> generatedTicketsModels) {
         this.generatedTicketsModels = generatedTicketsModels;
     }
 
-    /**
-     * Gets reserved tickets.
-     *
-     * @return the reserved tickets
-     */
-    public Set<TicketModels> getReservedTicketsModels() {
+    public Set<Ticket> getReservedTicketsModels() {
         return reservedTicketsModels;
     }
 
-    public void setReservedTickets(Set<TicketModels> reservedTicketsModels) {
+    public void setReservedTickets(Set<Ticket> reservedTicketsModels) {
         this.reservedTicketsModels = reservedTicketsModels;
     }
     public Set<Event> getGeneratedEvents() {
