@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VBox minHeight="-Infinity" minWidth="-Infinity" spacing="7.0" xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <HBox spacing="7.0">
+            <children>
+                <GridPane hgap="7.0">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" />
+                        <ColumnConstraints hgrow="SOMETIMES" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label text="%view.label.login" GridPane.rowIndex="1" />
+                        <TextField fx:id="loginField" focusTraversable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label text="%view.label.password" GridPane.rowIndex="2" />
+                        <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label text="%view.label.role" />
+                        <ComboBox fx:id="roleCombo" prefWidth="200.0" GridPane.columnIndex="1" />
+                    </children>
+                </GridPane>
+            </children>
+        </HBox>
+        <HBox alignment="TOP_RIGHT" spacing="7.0">
+            <children>
+                <Button mnemonicParsing="false" onAction="#cancel" text="%view.button.cancel" />
+                <Button mnemonicParsing="false" onAction="#login" text="%view.button.login" />
+            </children>
+        </HBox>
+    </children>
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+    </padding>
+</VBox>

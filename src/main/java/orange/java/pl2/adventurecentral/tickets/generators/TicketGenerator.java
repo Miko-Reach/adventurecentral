@@ -1,8 +1,11 @@
-package orange.java.pl2.adventurecentral.tickets;
+package orange.java.pl2.adventurecentral.tickets.generators;
 
 import jdk.jfr.Event;
-import orange.java.pl2.adventurecentral.users.RoleName;
-import orange.java.pl2.adventurecentral.users.UserService;
+import orange.java.pl2.adventurecentral.auth.globals.UserGlobal;
+import orange.java.pl2.adventurecentral.tickets.DocumentException;
+import orange.java.pl2.adventurecentral.tickets.models.Ticket;
+import orange.java.pl2.adventurecentral.users.enums.RoleName;
+import orange.java.pl2.adventurecentral.users.services.UserService;
 
 import javax.swing.text.Document;
 import java.awt.*;
@@ -13,7 +16,7 @@ import java.text.NumberFormat;
 
 public class TicketGenerator {
 
-    public static void generate(File toFile, TicketModels ticket) throws DocumentException, FileNotFoundException {
+    public static void generate(File toFile, Ticket ticket) throws DocumentException, FileNotFoundException {
         Event event = ticket.getEvent();
         Double price = ticket.getPrice();
         if (!UserService.hasRole(UserGlobal.getUser(), RoleName.ADMIN) && UserService.hasRole(UserGlobal.getUser(), RoleName.AGENT)) {
@@ -40,7 +43,7 @@ public class TicketGenerator {
         document.close();
     }
 
-    private static String getTitle(TicketModels ticket){
+    private static String getTitle(Ticket ticket){
         switch (ticket.getType()){
             case FLIGHT:
                 return "Bilet na lot";

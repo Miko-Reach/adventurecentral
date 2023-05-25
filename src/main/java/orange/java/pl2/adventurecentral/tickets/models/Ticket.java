@@ -1,16 +1,17 @@
-package orange.java.pl2.adventurecentral.tickets;
+package orange.java.pl2.adventurecentral.tickets.models;
 
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.ManyToOne;
 import jdk.jfr.Event;
+import orange.java.pl2.adventurecentral.tickets.TicketType;
 import org.apache.catalina.User;
 
 import java.util.Objects;
 
 
-public class TicketModels {
+public class Ticket {
 
     private String title;
 
@@ -33,11 +34,11 @@ public class TicketModels {
     private Event event;
 
 
-    public TicketModels() {
+    public Ticket() {
         this.reserved = false;
     }
 
-    public TicketModels(String title, String description, Double price, Boolean reserved, TicketType type, User createdBy) {
+    public Ticket(String title, String description, Double price, Boolean reserved, TicketType type, User createdBy) {
         this();
         this.title = title;
         this.description = description;
@@ -47,7 +48,7 @@ public class TicketModels {
         this.createdBy = createdBy;
     }
 
-    public TicketModels(String title, String description, Double price) {
+    public Ticket(String title, String description, Double price) {
         this();
         this.title = title;
         this.description = description;
@@ -122,10 +123,9 @@ public class TicketModels {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TicketModels ticket = (TicketModels) o;
+        Ticket ticket = (Ticket) o;
         return Objects.equals(getId(), ticket.getId());
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(getId());
