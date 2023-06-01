@@ -6,7 +6,6 @@ import org.springframework.data.annotation.Id;
 //public class Hotel extends Cities {
 
 
-public class Hotel extends Cities {
 
 
 //    Hotel¶
@@ -21,7 +20,7 @@ public class Hotel extends Cities {
     @Entity
     @Table(name = "Hotels")
 
-    public class Hotels extends Cities {
+    public class Hotel extends Cities {
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
         private Long id;
@@ -54,4 +53,4 @@ public class Hotel extends Cities {
         }
 
     }
-}
+
