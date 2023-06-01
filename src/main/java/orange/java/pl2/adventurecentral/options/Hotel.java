@@ -23,7 +23,7 @@ public class Hotel extends Cities {
 
     public class Hotels extends Cities {
         @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @GeneratedValue(strategy = GenerationType.AUTO)
         private Long id;
 
 
